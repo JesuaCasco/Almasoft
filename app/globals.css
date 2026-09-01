@@ -2418,10 +2418,11 @@ section {
 }
 
 .hero-copy h1 {
-  max-width: 780px;
-  font-size: clamp(54px, 4.65vw, 72px);
-  line-height: 1.02;
-  letter-spacing: 0;
+  max-width: min(10.1em, 680px);
+  font-size: clamp(56px, 4.35vw, 68px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
 }
 
 .hero-copy > p:not(.eyebrow) {
@@ -4863,7 +4864,7 @@ body :is(.desktop-nav, .mobile-nav, button, .button, .solution-detail-trigger, .
 
 @media (min-width: 1024px) {
   .hero-copy h1 {
-    max-width: min(11.5em, 780px);
+    max-width: min(10.1em, 680px);
   }
 
   .build-bridge-copy h2,
