@@ -3830,7 +3830,8 @@ body {
 
 .primary-solution-copy {
   display: grid;
-  align-content: center;
+  grid-template-rows: auto auto 1fr auto;
+  align-items: start;
   padding: clamp(20px, 2.4vw, 32px);
 }
 

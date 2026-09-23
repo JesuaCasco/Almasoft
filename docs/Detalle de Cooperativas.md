@@ -10,6 +10,7 @@ Botón «Conocer solución» en AS Cooperativas de Ahorro y Crédito. Solo cuatr
 - `components/ui/ProductDetailOverlay.tsx`: diálogo compartido; lee pestañas, pie y funciones adicionales del producto seleccionado.
 - `components/sections/MainSolutions.tsx`: botones de apertura; conserva el elemento que abrió el diálogo para devolverle el foco al cerrar.
 - `app/globals.css`: estilos existentes, altura estable y adaptación responsive compartidos.
+  Las tarjetas principales usan filas `auto auto 1fr auto` para mantener los botones alineados al pie, aunque cambie la longitud del texto o el número de etiquetas.
 
 ## Contenido
 Descripciones generales de los cuatro módulos confirmados. El contenido regulatorio CONAMI, PRIM, MUC y PLA pertenece al detalle de Microfinanzas y no se añade al de Cooperativas.
