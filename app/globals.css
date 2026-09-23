@@ -5372,12 +5372,18 @@ body :is(.desktop-nav, .mobile-nav, button, .button, .solution-detail-trigger, .
 /* Text-only product details: balanced columns without a screenshot placeholder. */
 .product-overlay-panel {
   width: min(94vw, 1240px);
-  height: auto;
+  height: min(760px, 94dvh);
   max-height: 94dvh;
 }
 
 .product-overlay-body {
   overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+
+.product-detail-summary,
+.product-tabs-shell {
+  flex-shrink: 0;
 }
 
 .product-tab-list {
@@ -5428,7 +5434,7 @@ body :is(.desktop-nav, .mobile-nav, button, .button, .solution-detail-trigger, .
 @media (max-width: 760px) {
   .product-overlay-panel {
     width: 100%;
-    height: auto;
+    height: 94dvh;
     max-height: 94dvh;
   }
 
