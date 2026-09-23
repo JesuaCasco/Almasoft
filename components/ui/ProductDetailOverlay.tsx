@@ -26,7 +26,6 @@ const tabs = [
       "Cobranza y cancelación dentro del mismo flujo",
     ],
     flow: ["Solicitud", "Evaluación", "Aprobación", "Desembolso", "Cobranza"],
-    visualLabel: "Vista del módulo de crédito",
   },
   {
     id: "portfolio",
@@ -40,7 +39,6 @@ const tabs = [
       "Provisiones y clasificación de riesgo",
       "Saneados, garantías y cobranza",
     ],
-    visualLabel: "Vista del módulo de cartera",
   },
   {
     id: "prim",
@@ -55,7 +53,6 @@ const tabs = [
       "Información estructurada desde la operación",
     ],
     highlight: "Todos los archivos ICC requeridos",
-    visualLabel: "Vista del módulo PRIM",
   },
   {
     id: "muc",
@@ -69,7 +66,6 @@ const tabs = [
       "Estructura basada en MUC",
       "Integración con la información financiera",
     ],
-    visualLabel: "Vista del módulo contable",
   },
   {
     id: "pla",
@@ -79,7 +75,6 @@ const tabs = [
     description:
       "El módulo PLA incorpora funcionalidades para evaluar y consultar información asociada al riesgo de clientes.",
     benefits: ["Perfil de riesgo", "Matriz de riesgo", "Búsqueda en listas"],
-    visualLabel: "Vista del módulo PLA",
   },
   {
     id: "security",
@@ -95,7 +90,6 @@ const tabs = [
         items: ["Reportes gerenciales", "Operativos", "Regulatorios", "Cartera", "Colocaciones", "Mora"],
       },
     ],
-    visualLabel: "Vista de seguridad y reportería",
   },
 ] as const;
 
@@ -200,6 +194,8 @@ export function ProductDetailOverlay({ product, onClose, returnFocusRef }: Produ
             <strong>{activeTabContent.highlight}</strong>
           ) : null}
 
+        </div>
+        <div className="product-module-details">
           {"benefitGroups" in activeTabContent ? (
             <div className="product-benefit-groups">
               {activeTabContent.benefitGroups.map((group) => (
@@ -229,20 +225,6 @@ export function ProductDetailOverlay({ product, onClose, returnFocusRef }: Produ
             </div>
           ) : null}
 
-        </div>
-
-        <div className="product-module-visual" aria-label={activeTabContent.visualLabel}>
-          <div className="product-browser-frame">
-            <div>
-              <span />
-              <span />
-              <span />
-            </div>
-            <section>
-              <p>{activeTabContent.visualLabel}</p>
-              <strong>Placeholder para captura real</strong>
-            </section>
-          </div>
         </div>
       </div>
     );
