@@ -3,7 +3,7 @@
 Volver a [[Inicio]]. Relacionado: [[Cambios pendientes]].
 
 ## Destino
-Proyecto Vercel confirmado el 2026-09-22: `jesuacascos-projects/almasoft`, URL https://almasoft.vercel.app. Carpeta vinculada mediante Vercel CLI. Publicación de [[Detalle de Microfinanzas]] autorizada; registrar el resultado remoto al finalizar.
+Proyecto Vercel confirmado el 2026-09-22: `jesuacascos-projects/almasoft`, URL https://almasoft.vercel.app. Publicación de [[Detalle de Microfinanzas]] completada en producción, estado `READY`.
 
 ## Comandos documentados
 Desde la raíz de Almasoft, el README indica:
@@ -30,3 +30,8 @@ Estos comandos se documentan como referencia; no se han ejecutado ni verificado 
 
 ## Registro
 2026-09-22: lint y build de producción correctos. Las comprobaciones pendientes de contacto y dominio son hallazgos anteriores ajenos al cambio visual solicitado.
+
+- Commit de implementación: `5fd9599`, subido a `origin/main`.
+- Despliegue: `dpl_DdMASG4smHjhBoWwRAHRVzcJP7du`.
+- URL de versión: https://almasoft-5t0qyiyz6-jesuacascos-projects.vercel.app.
+- Build remoto correcto (26 segundos); alias de producción actualizado.
