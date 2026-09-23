@@ -2,6 +2,8 @@
 
 Sitio corporativo de AlmaSoft construido con Next.js App Router, TypeScript, Tailwind CSS y ESLint.
 
+Contexto para trabajar en el repositorio: [AGENTS.md](AGENTS.md) y [router de documentación](docs/INDEX.md).
+
 ## Desarrollo
 
 ```bash
