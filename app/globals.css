@@ -4996,6 +4996,11 @@ body :is(.desktop-nav, .mobile-nav, button, .button, .solution-detail-trigger, .
   color: var(--almasoft-blue);
 }
 
+.why-item:nth-child(odd) img {
+  width: 100%;
+  height: 100%;
+}
+
 .final-cta {
   overflow: hidden;
   background: #ffffff;
