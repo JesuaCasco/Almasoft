@@ -1,87 +1,152 @@
+export type ProductTab = {
+  id: string;
+  label: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  highlight?: string;
+  flow?: string[];
+} & (
+  | { benefits: string[]; benefitGroups?: never }
+  | { benefits?: never; benefitGroups: Array<{ title: string; items: string[] }> }
+);
+
 export type ProductDetail = {
   id: string;
   eyebrow: string;
   title: string;
-  imageSrc: string;
-  imageAlt: string;
   heroShortTitle: string;
-  heroTitle: string;
   heroDescription: string;
-  heroNote: string;
-  capabilities: Array<{
-    title: string;
-    description: string;
-    highlight?: string;
-    flow?: string[];
-  }>;
+  tabs: [ProductTab, ...ProductTab[]];
   additionalFeatures: string[];
-  regulatoryTitle: string;
-  regulatoryText: string;
-  ctaTitle: string;
-  ctaText: string;
+  footerText: string;
 };
+
+const microfinanceTabs = [
+  {
+    id: "credit",
+    label: "Crédito",
+    eyebrow: "01 · CRÉDITO",
+    title: "Todo el ciclo crediticio en un solo flujo.",
+    description:
+      "Gestiona el crédito desde la solicitud y evaluación hasta la aprobación, desembolso, plan de pagos, cobranza y cancelación.",
+    benefits: [
+      "Solicitud y evaluación centralizadas",
+      "Desembolso y plan de pagos",
+      "Cobranza y cancelación dentro del mismo flujo",
+    ],
+    flow: ["Solicitud", "Evaluación", "Aprobación", "Desembolso", "Cobranza"],
+  },
+  {
+    id: "portfolio",
+    label: "Cartera",
+    eyebrow: "02 · CARTERA",
+    title: "Control de cartera para actuar a tiempo.",
+    description:
+      "Consulta y administra la situación de la cartera con información de mora, provisiones, clasificación de riesgo, saneados, garantías y cobranza.",
+    benefits: [
+      "Seguimiento de mora y cartera",
+      "Provisiones y clasificación de riesgo",
+      "Saneados, garantías y cobranza",
+    ],
+  },
+  {
+    id: "prim",
+    label: "PRIM",
+    eyebrow: "03 · PRIM",
+    title: "Información regulatoria preparada desde la operación.",
+    description:
+      "Genera todos los archivos ICC requeridos para el envío de información mediante PRIM utilizando la información centralizada en el sistema.",
+    benefits: [
+      "Generación completa de archivos ICC",
+      "Menos preparación manual",
+      "Información estructurada desde la operación",
+    ],
+    highlight: "Todos los archivos ICC requeridos",
+  },
+  {
+    id: "muc",
+    label: "Contabilidad",
+    eyebrow: "04 · CONTABILIDAD",
+    title: "Estructura contable basada en el MUC.",
+    description:
+      "Incorpora catálogos y estructura contable basada en el Manual Único de Cuentas utilizado por las instituciones reguladas por CONAMI.",
+    benefits: [
+      "Catálogos contables",
+      "Estructura basada en MUC",
+      "Integración con la información financiera",
+    ],
+  },
+  {
+    id: "pla",
+    label: "PLA",
+    eyebrow: "05 · PLA",
+    title: "Herramientas para apoyar la gestión de riesgo PLA.",
+    description:
+      "El módulo PLA incorpora funcionalidades para evaluar y consultar información asociada al riesgo de clientes.",
+    benefits: ["Perfil de riesgo", "Matriz de riesgo", "Búsqueda en listas"],
+  },
+  {
+    id: "security",
+    label: "Control",
+    eyebrow: "06 · CONTROL",
+    title: "Trazabilidad y reportería para diferentes niveles de la organización.",
+    description:
+      "Controla el acceso al sistema y consulta información operativa, gerencial y regulatoria desde una sola plataforma.",
+    benefitGroups: [
+      { title: "Seguridad", items: ["Usuarios", "Roles", "Permisos", "Bitácoras de auditoría"] },
+      {
+        title: "Reportería",
+        items: ["Reportes gerenciales", "Operativos", "Regulatorios", "Cartera", "Colocaciones", "Mora"],
+      },
+    ],
+  },
+] satisfies [ProductTab, ...ProductTab[]];
 
 export const productDetails: Record<string, ProductDetail> = {
   "as-microfinanzas": {
     id: "as-microfinanzas",
     eyebrow: "SOLUCIÓN ESPECIALIZADA",
     title: "AS Microfinanzas",
-    imageSrc: "/brochure/solution-microfinance-3d.png",
-    imageAlt: "Ilustración de AS Microfinanzas",
     heroShortTitle: "De la solicitud de crédito al reporte regulatorio.",
-    heroTitle: "De la solicitud de crédito al reporte regulatorio, en una sola plataforma.",
-    heroDescription:
-      "Sistema web integral para instituciones microfinancieras, diseñado considerando la normativa CONAMI y los procesos propios del sector.",
-    heroNote:
-      "Centraliza la gestión crediticia, cartera, contabilidad, PLA, reportería y generación de archivos regulatorios para PRIM.",
-    capabilities: [
+    heroDescription: "Sistema web integral para instituciones microfinancieras, diseñado considerando la normativa CONAMI y los procesos propios del sector.",
+    tabs: microfinanceTabs,
+    additionalFeatures: ["Clientes", "Caja", "Garantías", "Comité de crédito", "Cobranza", "Parametrización", "Sucursales", "Agencias"],
+    footerText: "Diseñado considerando normativa CONAMI, riesgo crediticio y PLA.",
+  },
+  "as-cooperativas": {
+    id: "as-cooperativas",
+    eyebrow: "SOLUCIÓN ESPECIALIZADA",
+    title: "AS Cooperativas de Ahorro y Crédito",
+    heroShortTitle: "La gestión de tus asociados y sus operaciones, en un solo lugar.",
+    heroDescription: "Plataforma para la gestión administrativa y financiera de cooperativas de ahorro y crédito: asociados, aportes, préstamos y contabilidad.",
+    tabs: [
       {
-        title: "Gestión crediticia",
-        description:
-          "Cubre el ciclo desde solicitud y evaluación hasta aprobación, desembolso, generación de planes de pago, cobranza y cancelación.",
-        flow: ["Solicitud", "Evaluación", "Aprobación", "Desembolso", "Plan de pago", "Cobranza", "Cancelación"],
+        id: "members", label: "Asociados", eyebrow: "01 · ASOCIADOS",
+        title: "Tus asociados, en el centro de la gestión.",
+        description: "Organiza la información de los asociados para apoyar su atención y la administración de sus operaciones en la cooperativa.",
+        benefits: ["Información de asociados centralizada", "Consulta de la información de cada asociado", "Apoyo a la gestión administrativa"],
       },
       {
-        title: "Administración de cartera",
-        description:
-          "Seguimiento de mora, provisiones, clasificación de riesgo, saneados, garantías y gestión operativa de cartera.",
+        id: "contributions", label: "Aportes", eyebrow: "02 · APORTES",
+        title: "Una visión clara de los aportes de tus asociados.",
+        description: "Administra la información de los aportes y sus movimientos para mantener un seguimiento organizado de la participación de los asociados.",
+        benefits: ["Gestión de aportes por asociado", "Consulta de movimientos de aportes", "Información organizada para su seguimiento"],
       },
       {
-        title: "Generación de archivos para PRIM",
-        description:
-          "Genera todos los archivos ICC requeridos para el envío de información mediante PRIM, centralizando los datos regulatorios y reduciendo preparación manual.",
-        highlight: "Todos los archivos ICC",
+        id: "loans", label: "Préstamos", eyebrow: "03 · PRÉSTAMOS",
+        title: "Gestión de préstamos al servicio de tus asociados.",
+        description: "Organiza la información de los préstamos de la cooperativa y facilita el seguimiento de las operaciones de crédito de sus asociados.",
+        benefits: ["Administración de préstamos", "Información de crédito por asociado", "Seguimiento de operaciones"],
       },
       {
-        title: "Contabilidad bajo MUC",
-        description:
-          "Incorpora catálogos y estructura contable basada en el Manual Único de Cuentas (MUC) utilizado por las instituciones reguladas por CONAMI.",
-        highlight: "MUC",
-      },
-      {
-        title: "Prevención de Lavado de Activos",
-        description: "Incluye perfil de riesgo, matriz de riesgo y búsqueda en listas como parte del módulo PLA.",
-      },
-      {
-        title: "Control, seguridad y reportería",
-        description:
-          "Gestión de usuarios, roles, permisos y bitácoras de auditoría, junto con reportes gerenciales, operativos, regulatorios, de cartera, colocaciones y mora.",
+        id: "accounting", label: "Contabilidad", eyebrow: "04 · CONTABILIDAD",
+        title: "Información contable para la gestión cooperativa.",
+        description: "Apoya la administración financiera de la cooperativa con información contable organizada para consultar y dar seguimiento a su operación.",
+        benefits: ["Gestión contable", "Consulta de información financiera", "Apoyo al seguimiento administrativo"],
       },
     ],
-    additionalFeatures: [
-      "Clientes",
-      "Caja",
-      "Garantías",
-      "Comité de crédito",
-      "Cobranza",
-      "Parametrización de productos",
-      "Sucursales",
-      "Agencias",
-    ],
-    regulatoryTitle: "Diseñado considerando la normativa del sector",
-    regulatoryText:
-      "AS Microfinanzas ha sido pensado alrededor de la operación real de instituciones microfinancieras y de los requerimientos asociados a la normativa CONAMI, gestión de riesgo crediticio y PLA.",
-    ctaTitle: "¿Quieres conocer AS Microfinanzas en funcionamiento?",
-    ctaText: "Solicita una demostración y conoce cómo puede adaptarse a la operación de tu institución.",
+    additionalFeatures: [],
+    footerText: "Gestión administrativa y financiera para cooperativas de ahorro y crédito.",
   },
 };

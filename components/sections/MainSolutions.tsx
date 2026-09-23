@@ -19,10 +19,11 @@ const primarySolutions = [
   },
   {
     title: "AS Cooperativas",
-    description: "Plataforma completa para la gestión administrativa y financiera de cooperativas.",
+    description: "Plataforma para la gestión administrativa y financiera de cooperativas de ahorro y crédito.",
     imageSrc: "/brochure/solution-coop-3d.png",
     imageAlt: "Ilustración de AS Cooperativas",
     tags: ["Asociados", "Aportes", "Préstamos", "Contabilidad"],
+    detailId: "as-cooperativas",
   },
 ] as const;
 
@@ -61,9 +62,10 @@ const modularAttributes = [
 
 export function MainSolutions() {
   const [selectedProduct, setSelectedProduct] = useState<ProductDetail | null>(null);
-  const microfinanceButtonRef = useRef<HTMLButtonElement>(null);
+  const productButtonRef = useRef<HTMLButtonElement | null>(null);
 
-  const openProductDetail = (detailId: string) => {
+  const openProductDetail = (detailId: string, trigger: HTMLButtonElement) => {
+    productButtonRef.current = trigger;
     setSelectedProduct(productDetails[detailId]);
   };
 
@@ -101,10 +103,11 @@ export function MainSolutions() {
                 </div>
                 {"detailId" in solution ? (
                   <button
-                    ref={microfinanceButtonRef}
                     type="button"
                     className="solution-detail-trigger"
-                    onClick={() => openProductDetail(solution.detailId)}
+                    aria-label={`Conocer solución ${solution.title}`}
+                    aria-haspopup="dialog"
+                    onClick={(event) => openProductDetail(solution.detailId, event.currentTarget)}
                   >
                     Conocer solución <span aria-hidden="true">→</span>
                   </button>
@@ -157,7 +160,7 @@ export function MainSolutions() {
           </Button>
         </Reveal>
       </Container>
-      <ProductDetailOverlay product={selectedProduct} onClose={closeProductDetail} returnFocusRef={microfinanceButtonRef} />
+      <ProductDetailOverlay product={selectedProduct} onClose={closeProductDetail} returnFocusRef={productButtonRef} />
     </section>
   );
 }

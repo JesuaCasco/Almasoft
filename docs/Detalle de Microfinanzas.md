@@ -4,8 +4,8 @@ Volver a [[Mapa del proyecto]] · [[Cambios pendientes]] · [[Publicación]].
 
 ## Mapa mínimo para futuras consultas
 - `components/sections/MainSolutions.tsx`: abre el detalle del producto.
-- `components/ui/ProductDetailOverlay.tsx`: diálogo, seis pestañas, beneficios, recorrido y cierre accesible.
-- `data/productDetails.ts`: título y resumen del producto.
+- `components/ui/ProductDetailOverlay.tsx`: diálogo compartido, beneficios, recorrido y cierre accesible.
+- `data/productDetails.ts`: título, resumen, seis pestañas y pie del producto. También contiene [[Detalle de Cooperativas]].
 - `app/globals.css`: buscar `.product-` y el bloque final `Text-only product details`.
 
 ## Cambio solicitado — 2026-09-22

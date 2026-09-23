@@ -12,91 +12,8 @@ type ProductDetailOverlayProps = {
 const focusableSelector =
   'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
-const tabs = [
-  {
-    id: "credit",
-    label: "Crédito",
-    eyebrow: "01 · CRÉDITO",
-    title: "Todo el ciclo crediticio en un solo flujo.",
-    description:
-      "Gestiona el crédito desde la solicitud y evaluación hasta la aprobación, desembolso, plan de pagos, cobranza y cancelación.",
-    benefits: [
-      "Solicitud y evaluación centralizadas",
-      "Desembolso y plan de pagos",
-      "Cobranza y cancelación dentro del mismo flujo",
-    ],
-    flow: ["Solicitud", "Evaluación", "Aprobación", "Desembolso", "Cobranza"],
-  },
-  {
-    id: "portfolio",
-    label: "Cartera",
-    eyebrow: "02 · CARTERA",
-    title: "Control de cartera para actuar a tiempo.",
-    description:
-      "Consulta y administra la situación de la cartera con información de mora, provisiones, clasificación de riesgo, saneados, garantías y cobranza.",
-    benefits: [
-      "Seguimiento de mora y cartera",
-      "Provisiones y clasificación de riesgo",
-      "Saneados, garantías y cobranza",
-    ],
-  },
-  {
-    id: "prim",
-    label: "PRIM",
-    eyebrow: "03 · PRIM",
-    title: "Información regulatoria preparada desde la operación.",
-    description:
-      "Genera todos los archivos ICC requeridos para el envío de información mediante PRIM utilizando la información centralizada en el sistema.",
-    benefits: [
-      "Generación completa de archivos ICC",
-      "Menos preparación manual",
-      "Información estructurada desde la operación",
-    ],
-    highlight: "Todos los archivos ICC requeridos",
-  },
-  {
-    id: "muc",
-    label: "Contabilidad",
-    eyebrow: "04 · CONTABILIDAD",
-    title: "Estructura contable basada en el MUC.",
-    description:
-      "Incorpora catálogos y estructura contable basada en el Manual Único de Cuentas utilizado por las instituciones reguladas por CONAMI.",
-    benefits: [
-      "Catálogos contables",
-      "Estructura basada en MUC",
-      "Integración con la información financiera",
-    ],
-  },
-  {
-    id: "pla",
-    label: "PLA",
-    eyebrow: "05 · PLA",
-    title: "Herramientas para apoyar la gestión de riesgo PLA.",
-    description:
-      "El módulo PLA incorpora funcionalidades para evaluar y consultar información asociada al riesgo de clientes.",
-    benefits: ["Perfil de riesgo", "Matriz de riesgo", "Búsqueda en listas"],
-  },
-  {
-    id: "security",
-    label: "Control",
-    eyebrow: "06 · CONTROL",
-    title: "Trazabilidad y reportería para diferentes niveles de la organización.",
-    description:
-      "Controla el acceso al sistema y consulta información operativa, gerencial y regulatoria desde una sola plataforma.",
-    benefitGroups: [
-      { title: "Seguridad", items: ["Usuarios", "Roles", "Permisos", "Bitácoras de auditoría"] },
-      {
-        title: "Reportería",
-        items: ["Reportes gerenciales", "Operativos", "Regulatorios", "Cartera", "Colocaciones", "Mora"],
-      },
-    ],
-  },
-] as const;
-
-type ProductTabId = (typeof tabs)[number]["id"];
-
 export function ProductDetailOverlay({ product, onClose, returnFocusRef }: ProductDetailOverlayProps) {
-  const [activeTab, setActiveTab] = useState<ProductTabId>("credit");
+  const [activeTab, setActiveTab] = useState("");
   const dialogRef = useRef<HTMLDivElement>(null);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
@@ -152,12 +69,14 @@ export function ProductDetailOverlay({ product, onClose, returnFocusRef }: Produ
   }, [onClose, product, returnFocusRef]);
 
   useEffect(() => {
-    if (product) setActiveTab("credit");
+    if (product) setActiveTab(product.tabs[0].id);
   }, [product]);
 
   if (!product) return null;
 
+  const tabs = product.tabs;
   const activeTabContent = tabs.find((tab) => tab.id === activeTab) ?? tabs[0];
+  const activeTabId = activeTabContent.id;
 
   const handleContactClick = () => {
     onClose();
@@ -196,7 +115,7 @@ export function ProductDetailOverlay({ product, onClose, returnFocusRef }: Produ
 
         </div>
         <div className="product-module-details">
-          {"benefitGroups" in activeTabContent ? (
+          {activeTabContent.benefitGroups ? (
             <div className="product-benefit-groups">
               {activeTabContent.benefitGroups.map((group) => (
                 <div key={group.title}>
@@ -218,7 +137,7 @@ export function ProductDetailOverlay({ product, onClose, returnFocusRef }: Produ
           )}
 
           {"flow" in activeTabContent && activeTabContent.flow ? (
-            <div className="product-flow-line" aria-label="Recorrido del crédito">
+            <div className="product-flow-line" aria-label={`Recorrido de ${activeTabContent.label.toLowerCase()}`}>
               {activeTabContent.flow.map((step) => (
                 <em key={step}>{step}</em>
               ))}
@@ -269,9 +188,9 @@ export function ProductDetailOverlay({ product, onClose, returnFocusRef }: Produ
                   type="button"
                   id={`${product.id}-${tab.id}-tab`}
                   role="tab"
-                  aria-selected={activeTab === tab.id}
+                  aria-selected={activeTabId === tab.id}
                   aria-controls={`${product.id}-${tab.id}-panel`}
-                  tabIndex={activeTab === tab.id ? 0 : -1}
+                  tabIndex={activeTabId === tab.id ? 0 : -1}
                   onClick={() => setActiveTab(tab.id)}
                   onKeyDown={(event) => handleTabKeyDown(event, index)}
                 >
@@ -281,25 +200,26 @@ export function ProductDetailOverlay({ product, onClose, returnFocusRef }: Produ
             </div>
 
             <div
-              id={`${product.id}-${activeTab}-panel`}
+              id={`${product.id}-${activeTabId}-panel`}
               className="product-tab-panel"
               role="tabpanel"
-              aria-labelledby={`${product.id}-${activeTab}-tab`}
+              aria-labelledby={`${product.id}-${activeTabId}-tab`}
               tabIndex={0}
             >
               {renderActiveTab()}
             </div>
 
-            <p className="product-includes-line">
-              <strong>También incluye:</strong> Clientes · Caja · Garantías · Comité de crédito · Cobranza ·
-              Parametrización · Sucursales · Agencias
-            </p>
+            {product.additionalFeatures.length > 0 ? (
+              <p className="product-includes-line">
+                <strong>También incluye:</strong> {product.additionalFeatures.join(" · ")}
+              </p>
+            ) : null}
           </section>
         </div>
 
         <footer className="product-overlay-cta">
           <div>
-            <p>Diseñado considerando normativa CONAMI, riesgo crediticio y PLA.</p>
+            <p>{product.footerText}</p>
           </div>
           <button type="button" onClick={handleContactClick}>
             Solicitar demostración
