@@ -4,6 +4,7 @@ Volver a [[Inicio]]. Revisión: 2026-09-21.
 
 ## Tecnología
 Detalle y rutas para cambios de esta interfaz: [[Detalle de Microfinanzas]].
+Recuperación del diseño publicado que faltaba en Git: [[CTA del robot]].
 
 package.json declara Next.js ^15.5.0, React ^19.1.0, TypeScript ^5.9.2, Tailwind CSS ^3.4.17 y GSAP ^3.15.0. Son rangos declarados, no versiones instaladas verificadas.
 

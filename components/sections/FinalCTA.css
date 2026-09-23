@@ -1,0 +1,440 @@
+/* Original CTA styles recovered from production, 2026-09-01. */
+.life-cta {
+  background:linear-gradient(90deg,rgba(0,113,188,.045) 1px,transparent 0),linear-gradient(0deg,rgba(0,113,188,.035) 1px,transparent 0),#ffffff;
+  background-size:72px 72px
+}
+.life-cta .container-shell {
+  width:min(100% - 48px,1640px)
+}
+.life-cta-card {
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(430px,.82fr) minmax(0,1.48fr);
+  grid-template-areas:"brand brand" "robot content" "benefits benefits";
+  gap:clamp(18px,2.2vw,34px) clamp(42px,5vw,82px);
+  overflow:clip;
+  border:1px solid rgba(0,113,188,.14);
+  border-radius:18px;
+  background:radial-gradient(circle at 18% 38%,rgba(0,113,188,.08),transparent 28%),linear-gradient(135deg,rgba(255,255,255,.96),rgba(247,251,254,.98));
+  box-shadow:0 20px 56px rgba(6,27,42,.08);
+  padding:clamp(30px,3.4vw,58px) clamp(34px,4.2vw,68px)
+}
+.life-cta-card:after {
+  position:absolute;
+  inset:0;
+  content:"";
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,113,188,.028) 1px,transparent 0),linear-gradient(0deg,rgba(0,113,188,.022) 1px,transparent 0);
+  background-size:52px 52px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)
+}
+.life-cta-benefits,.life-cta-brand,.life-cta-content,.life-cta-robot {
+  position:relative;
+  z-index:1
+}
+.life-cta-brand {
+  grid-area:brand;
+  display:inline-flex;
+  width:-moz-fit-content;
+  width:fit-content;
+  align-items:center;
+  gap:.7rem;
+  color:var(--almasoft-blue);
+  font-family:var(--font-manrope),var(--font-inter),system-ui,sans-serif
+}
+.life-cta-brand img {
+  position:static;
+  width:clamp(210px,18vw,330px);
+  height:auto;
+  opacity:1;
+  transform:none
+}
+.life-cta-brand span {
+  font-size:clamp(2.2rem,3vw,3.4rem);
+  font-weight:800;
+  line-height:.8
+}
+.life-cta-brand span,.life-cta-brand strong {
+  color:var(--almasoft-blue);
+  font-family:var(--font-manrope),var(--font-inter),system-ui,sans-serif
+}
+.life-cta-brand strong {
+  font-size:clamp(1.75rem,2.4vw,2.8rem);
+  font-weight:650;
+  line-height:1
+}
+.life-cta-robot {
+  grid-area:robot;
+  display:grid;
+  min-height:clamp(420px,32vw,560px);
+  align-items:center;
+  justify-items:center;
+  transform:translateY(-34px)
+}
+.life-cta-robot img {
+  position:static;
+  transform:none;
+  width:min(120%,560px);
+  height:auto;
+  -o-object-fit:contain;
+  object-fit:contain;
+  opacity:1;
+  filter:drop-shadow(0 22px 38px rgba(0,91,152,.12))
+}
+.life-cta-content {
+  grid-area:content;
+  align-content:center;
+  min-width:0;
+  gap:clamp(8px,.9vw,12px);
+  text-align:center
+}
+.life-cta-content,.life-cta-copy {
+  display:grid;
+  justify-items:center
+}
+.life-cta-copy {
+  gap:.18rem
+}
+.life-cta-copy h2 {
+  max-width:19ch;
+  margin:0;
+  color:var(--navy);
+  font-family:var(--font-manrope),var(--font-inter),system-ui,sans-serif;
+  font-size:clamp(3rem,4.45vw,5.15rem);
+  font-weight:750;
+  letter-spacing:-.018em;
+  line-height:.98;
+  text-wrap:balance
+}
+.life-cta-copy p {
+  max-width:58ch;
+  margin:0;
+  color:#51677a;
+  font-size:clamp(1rem,1.45vw,1.55rem);
+  line-height:1.38
+}
+.life-switch {
+  --switch-core-width:clamp(300px,23vw,344px);
+  position:relative;
+  display:block;
+  width:min(100%,560px);
+  max-width:100%;
+  min-height:clamp(118px,8vw,148px);
+  overflow:visible;
+  border:1px solid rgba(0,113,188,.08);
+  border-radius:999px;
+  background:transparent;
+  box-shadow:0 16px 36px rgba(6,27,42,.075);
+  padding:0 clamp(8px,1.1vw,14px)
+}
+.life-switch:before {
+  position:absolute;
+  inset:0;
+  z-index:0;
+  border-radius:inherit;
+  background:rgba(255,255,255,.94);
+  content:""
+}
+.life-switch-option {
+  position:absolute;
+  top:50%;
+  z-index:2;
+  display:grid;
+  width:-moz-max-content;
+  width:max-content;
+  min-width:0;
+  min-height:74px;
+  place-items:center;
+  border:0;
+  background:transparent;
+  color:#8b98a5;
+  font-family:var(--font-manrope),var(--font-inter),system-ui,sans-serif;
+  font-size:clamp(2rem,3.4vw,3.5rem);
+  font-weight:800;
+  line-height:1;
+  cursor:pointer;
+  transform:translate(-50%,-50%);
+  transition:color .2s ease,opacity .2s ease,transform .2s ease
+}
+.life-switch-option-no {
+  left:22%
+}
+.life-switch-option-yes {
+  left:78%
+}
+.life-switch-option:focus-visible,.life-switch-option:hover {
+  color:var(--navy)
+}
+.life-switch-option:focus-visible {
+  outline:3px solid rgba(0,113,188,.18);
+  outline-offset:8px;
+  border-radius:999px
+}
+.life-switch-option:disabled {
+  cursor:wait;
+  opacity:.72
+}
+.life-cta.is-no .life-switch-option-no {
+  color:#c74747
+}
+.life-cta.has-result .life-switch-option-yes,.life-cta.is-yes .life-switch-option-yes {
+  color:#0ba968
+}
+.life-switch-svg {
+  position:absolute;
+  inset:50% auto auto 50%;
+  z-index:1;
+  width:var(--switch-core-width);
+  height:clamp(172px,12vw,218px);
+  pointer-events:none;
+  transform:translate(calc(-50% - clamp(8px, 1.25vw, 17px)),-50%)
+}
+.life-switch-svg svg {
+  display:block;
+  width:100%;
+  height:100%;
+  overflow:visible;
+  visibility:hidden
+}
+.life-switch-svg #panel {
+  stroke:rgba(0,113,188,.1)
+}
+.life-switch-svg #toggle {
+  cursor:default;
+  display:block;
+  opacity:1;
+  visibility:visible;
+  filter:drop-shadow(0 10px 16px rgba(6,27,42,.16))
+}
+.life-switch-svg #robotHand2 {
+  opacity:0
+}
+.life-cta-result {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  width:min(100%,760px);
+  gap:clamp(10px,1.4vw,18px);
+  align-items:center;
+  max-height:0;
+  overflow:hidden;
+  opacity:0;
+  transform:translateY(8px);
+  transition:opacity .32s ease,transform .32s ease,max-height .32s ease
+}
+.life-cta.has-result .life-cta-result {
+  max-height:160px;
+  opacity:1;
+  border:1px solid rgba(16,185,129,.16);
+  border-radius:14px;
+  background:linear-gradient(90deg,rgba(16,185,129,.08),rgba(255,255,255,.72));
+  padding:14px 18px;
+  transform:translateY(0)
+}
+.life-cta-result>span {
+  display:grid;
+  width:46px;
+  height:46px;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(16,185,129,.16);
+  color:#0ba968;
+  font-size:1.55rem;
+  font-weight:900
+}
+.life-cta-result div {
+  display:grid;
+  gap:.2rem;
+  min-width:0;
+  text-align:left
+}
+.life-cta-result strong {
+  color:#0ba968;
+  font-family:var(--font-manrope),var(--font-inter),system-ui,sans-serif;
+  font-size:clamp(1.1rem,1.55vw,1.55rem);
+  font-weight:800
+}
+.life-cta-result p {
+  max-width:34ch;
+  margin:0;
+  color:var(--navy);
+  font-size:clamp(1rem,1.35vw,1.35rem);
+  line-height:1.32
+}
+.life-cta-benefits {
+  grid-area:benefits;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:0;
+  border-top:1px solid rgba(0,113,188,.1);
+  padding-top:clamp(16px,2.2vw,28px)
+}
+.life-cta-benefits span {
+  display:grid;
+  align-content:center;
+  min-height:48px;
+  border-right:1px solid rgba(0,113,188,.12);
+  color:var(--navy);
+  padding:0 clamp(12px,2vw,24px);
+  font-size:clamp(.92rem,1.1vw,1.08rem);
+  font-weight:700;
+  line-height:1.24;
+  text-align:center
+}
+.life-cta-benefits span:last-child {
+  border-right:0
+}
+@media (min-width:1024px) and (max-height:850px) {
+  .life-cta-card {
+  gap:22px 34px;
+  padding:26px 42px
+}
+.life-cta-robot {
+  min-height:340px;
+  transform:translateY(-22px)
+}
+.life-cta-robot img {
+  width:min(112%,430px)
+}
+.life-cta-content {
+  gap:8px
+}
+.life-cta-copy h2 {
+  font-size:clamp(2.2rem,3.7vw,3.6rem)
+}
+.life-switch {
+  --switch-core-width:clamp(286px,22vw,324px);
+  width:min(100%,530px);
+  min-height:112px
+}
+.life-switch-svg {
+  height:198px
+}
+
+}
+@media (min-width:1024px) and (max-height:760px) {
+  .life-cta-card {
+  gap:18px 28px;
+  padding:22px 34px
+}
+.life-cta-brand span {
+  font-size:2rem
+}
+.life-cta-brand strong {
+  font-size:1.55rem
+}
+.life-cta-robot {
+  min-height:292px;
+  transform:translateY(-16px)
+}
+.life-cta-robot img {
+  width:min(108%,360px)
+}
+.life-cta-copy h2 {
+  font-size:clamp(2rem,3.4vw,3.2rem)
+}
+.life-cta-copy p {
+  font-size:clamp(.95rem,1.2vw,1.18rem)
+}
+.life-switch {
+  --switch-core-width:clamp(272px,21vw,306px);
+  width:min(100%,500px);
+  min-height:106px
+}
+.life-switch-option {
+  font-size:clamp(1.75rem,2.8vw,2.6rem)
+}
+.life-switch-svg {
+  height:182px
+}
+.life-cta-benefits {
+  padding-top:14px
+}
+
+}
+@media (max-width:980px) {
+  .life-cta-card {
+  grid-template-columns:1fr;
+  grid-template-areas:"brand" "robot" "content" "benefits";
+  justify-items:center;
+  text-align:center
+}
+.life-cta-robot {
+  min-height:0;
+  transform:translateY(0)
+}
+.life-cta-robot img {
+  width:min(78vw,420px)
+}
+
+}
+@media (max-width:760px) {
+  .life-cta-card {
+  border-radius:14px;
+  padding:22px 16px
+}
+.life-cta-brand {
+  justify-self:start
+}
+.life-cta-copy h2 {
+  max-width:12ch;
+  font-size:clamp(2.1rem,10vw,3.2rem)
+}
+.life-cta-copy p {
+  font-size:1rem
+}
+.life-switch {
+  --switch-core-width:min(54vw,252px);
+  width:min(100%,384px);
+  min-height:92px;
+  padding-inline:8px
+}
+.life-switch-option {
+  font-size:clamp(1.35rem,7vw,2rem)
+}
+.life-switch-option-no {
+  left:20%
+}
+.life-switch-option-yes {
+  left:80%
+}
+.life-switch-svg {
+  height:134px
+}
+.life-cta-result,.life-cta.has-result .life-cta-result {
+  grid-template-columns:1fr;
+  justify-items:center;
+  max-height:260px;
+  text-align:center
+}
+.life-cta-result div {
+  text-align:center
+}
+.life-cta-benefits {
+  grid-template-columns:1fr 1fr;
+  width:100%
+}
+.life-cta-benefits span {
+  border-right:0;
+  border-bottom:1px solid rgba(0,113,188,.1)
+}
+.life-cta-benefits span:nth-last-child(-n+2) {
+  border-bottom:0
+}
+
+}
+@media (max-width:420px) {
+  .life-switch {
+  --switch-core-width:min(50vw,214px);
+  width:min(100%,330px);
+  min-height:86px
+}
+.life-switch-option {
+  font-size:clamp(1.2rem,6.5vw,1.65rem)
+}
+.life-switch-svg {
+  height:116px
+}
+
+}
+
