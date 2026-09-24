@@ -924,7 +924,7 @@ section {
 
 .footer-brand img {
   display: block;
-  width: clamp(210px, 17vw, 260px);
+  width: clamp(230px, 18vw, 280px);
   height: auto;
   filter: brightness(0) invert(1);
 }
@@ -932,20 +932,21 @@ section {
 .footer-email {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
+  gap: 1rem;
   width: fit-content;
-  margin-top: 1rem;
-  color: #9dd6ff;
-  font-size: 0.95rem;
-  font-weight: 700;
+  margin-top: 1.6rem;
+  color: #c8d8e3;
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .footer-email svg {
-  width: 17px;
-  height: 17px;
+  width: 29px;
+  height: 25px;
+  color: #16b8f4;
   fill: none;
   stroke: currentColor;
-  stroke-width: 1.7;
+  stroke-width: 1.55;
 }
 
 .site-footer h2 {
