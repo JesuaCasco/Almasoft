@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "Software para microfinanzas, cooperativas de ahorro y crédito, facturación, inventario, contabilidad, planilla y desarrollo de soluciones empresariales a medida.",
   domain: "",
-  email: "",
+  email: "info@almasoft.com.ni",
   phone: "",
   whatsapp: "",
   address: "",

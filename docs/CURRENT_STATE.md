@@ -11,7 +11,7 @@ Base verificada: 2026-09-22. Este archivo representa estado, no historial.
 ## Incompleto / decisiones pendientes
 - `Contact.onSubmit` no envía ni guarda solicitudes. Falta definir canal/backend, validación y tratamiento del resultado.
 - El formulario usa `noValidate` y muestra texto técnico sobre la conexión pendiente; revisar al implementar el flujo real.
-- `siteConfig`: dominio, email, teléfono, WhatsApp, dirección y redes están vacíos. Definir datos reales.
+- `siteConfig`: el correo público es `info@almasoft.com.ni`; dominio, teléfono, WhatsApp, dirección y redes siguen vacíos. Definir los datos reales restantes.
 - Sitemap y robots usan `https://example.com` cuando falta dominio: corregir antes de dar por terminado el SEO.
 - Las soluciones secundarias se muestran como tarjetas; no tienen diálogo propio. No hay ampliación de módulos aprobada en curso.
 

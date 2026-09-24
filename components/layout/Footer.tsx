@@ -24,7 +24,9 @@ export function Footer() {
       <Container className="footer-grid">
         <div className="footer-brand">
           <Image src={brandAssets.logo} alt={siteConfig.name} width={248} height={66} />
-          <p>{siteConfig.tagline}</p>
+          <a className="footer-email" href={`mailto:${siteConfig.email}`}>
+            {siteConfig.email}
+          </a>
         </div>
         {footerGroups.map((group) => (
           <div key={group.title}>

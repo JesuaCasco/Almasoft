@@ -15,6 +15,8 @@ React, `Container`, `Reveal`, `siteConfig`. No servicio de email, API o base de 
 ## Datos/modelos
 `FormState`: nombre, empresa, correo, teléfono, organización y necesidad. Opciones de organización en `organizationTypes`. Los valores no persisten al recargar.
 
+El correo público configurado es `info@almasoft.com.ni`; se muestra como enlace `mailto:` en contacto y en el pie del sitio.
+
 ## Reglas importantes
 No comunicar éxito de envío sin backend real. Email/teléfono/WhatsApp solo producen enlaces cuando están configurados. El enlace de demostración no transmite automáticamente un producto seleccionado.
 
@@ -25,4 +27,4 @@ No comunicar éxito de envío sin backend real. Email/teléfono/WhatsApp solo pr
 Sin suite persistente. Verificar campos controlados y enlaces condicionales. Al implementar backend, probar validación, éxito/error y recepción real; verificar solo el clic del botón no basta.
 
 ## Riesgos / no romper
-Todos los CTA dependen del ancla `#contacto`. La configuración vacía y el texto técnico visible siguen pendientes en [CURRENT_STATE](../CURRENT_STATE.md). No inventar destinatarios ni credenciales.
+Todos los CTA dependen del ancla `#contacto`. Los demás datos de contacto aún vacíos y el texto técnico visible siguen pendientes en [CURRENT_STATE](../CURRENT_STATE.md). No inventar destinatarios ni credenciales.
