@@ -12,6 +12,7 @@ export const siteConfig = {
   facebook: "",
   instagram: "",
   linkedin: "",
+  youtube: "",
 };
 
 export const brandAssets = {
