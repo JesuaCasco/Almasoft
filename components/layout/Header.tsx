@@ -35,6 +35,18 @@ export function Header() {
         Saltar al contenido
       </Link>
       <div className="header-shell">
+        <button
+          type="button"
+          className="menu-button"
+          aria-label={open ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
+          onClick={() => setOpen((value) => !value)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
         <Link href="#inicio" className="brand-link" aria-label="Ir al inicio de AlmaSoft" onClick={() => setOpen(false)}>
           <Image src={brandAssets.logo} alt={siteConfig.name} width={240} height={64} priority />
         </Link>
@@ -48,18 +60,6 @@ export function Header() {
         <Link className="header-cta" href="#contacto">
           Solicitar demostración
         </Link>
-        <button
-          type="button"
-          className="menu-button"
-          aria-label={open ? "Cerrar menú" : "Abrir menú"}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          onClick={() => setOpen((value) => !value)}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
       </div>
       <div id="mobile-menu" className={`mobile-menu ${open ? "is-open" : ""}`}>
         {navigation.map((item) => (
