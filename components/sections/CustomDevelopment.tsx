@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
+import { AnimatedSelectionTitle } from "@/components/ui/AnimatedSelectionTitle";
 
 export function CustomDevelopment() {
   return (
@@ -9,7 +10,7 @@ export function CustomDevelopment() {
       <Container className="custom-grid">
         <Reveal className="custom-copy">
           <p className="eyebrow">DESARROLLO A MEDIDA</p>
-          <h2>Cuando tu proceso es diferente, tu software también puede serlo.</h2>
+          <AnimatedSelectionTitle>Cuando tu proceso es diferente, tu software también puede serlo.</AnimatedSelectionTitle>
           <p>
             Creamos módulos, integraciones y soluciones específicas para empresas que necesitan tecnología adaptada a su
             forma de trabajar.
