@@ -5658,8 +5658,8 @@ body :is(.desktop-nav, .mobile-nav, button, .button, .solution-detail-trigger, .
 
   .problems-heading,
   .process-section .section-heading {
-    margin-inline: auto;
-    text-align: center;
+    margin-inline: 0;
+    text-align: left;
   }
 
   .problem-item,
