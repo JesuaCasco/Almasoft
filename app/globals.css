@@ -5039,8 +5039,8 @@ body :is(.desktop-nav, .mobile-nav, button, .button, .solution-detail-trigger, .
   overflow: hidden;
   border: 0;
   border-radius: 18px;
-  padding: 3px;
-  background: rgba(0, 113, 188, 0.2);
+  padding: 0;
+  background: var(--almasoft-blue);
   text-align: center;
   isolation: isolate;
   box-shadow: 0 8px 18px rgba(6, 27, 42, 0.08), 0 18px 34px rgba(0, 91, 152, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.34);
@@ -5049,15 +5049,17 @@ body :is(.desktop-nav, .mobile-nav, button, .button, .solution-detail-trigger, .
 
 .industry-row::before {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 0;
-  width: 170%;
-  aspect-ratio: 1;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  padding: 3px;
   content: "";
   pointer-events: none;
-  background: conic-gradient(from 0deg, transparent 0 76%, #ffffff 81%, #54c4ff 87%, transparent 93% 100%);
-  transform: translate(-50%, -50%) rotate(0deg);
+  background: conic-gradient(from var(--industry-border-angle), transparent 0 76%, #ffffff 81%, #54c4ff 87%, transparent 93% 100%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  mask-composite: exclude;
   animation: industry-border-spin 3.2s linear infinite paused;
 }
 
@@ -5067,7 +5069,7 @@ body :is(.desktop-nav, .mobile-nav, button, .button, .solution-detail-trigger, .
 }
 
 .industry-row:hover::before {
-  background: conic-gradient(from 0deg, transparent 0 76%, var(--almasoft-blue) 81%, #31aff5 87%, transparent 93% 100%);
+  background: conic-gradient(from var(--industry-border-angle), rgba(0, 113, 188, 0.18) 0 76%, var(--almasoft-blue) 81%, #31aff5 87%, rgba(0, 113, 188, 0.18) 93% 100%);
   animation-play-state: running;
 }
 
@@ -5081,7 +5083,7 @@ body :is(.desktop-nav, .mobile-nav, button, .button, .solution-detail-trigger, .
   align-items: center;
   justify-content: center;
   gap: 1.05rem;
-  border-radius: 15px;
+  border-radius: 18px;
   padding: clamp(1.2rem, 2.2vw, 1.65rem) clamp(0.75rem, 1.6vw, 1.1rem);
   background-color: var(--almasoft-blue);
   color: #ffffff;
@@ -5128,9 +5130,15 @@ body :is(.desktop-nav, .mobile-nav, button, .button, .solution-detail-trigger, .
   line-height: 1.12;
 }
 
+@property --industry-border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
 @keyframes industry-border-spin {
   to {
-    transform: translate(-50%, -50%) rotate(360deg);
+    --industry-border-angle: 360deg;
   }
 }
 
