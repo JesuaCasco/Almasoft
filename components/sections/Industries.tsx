@@ -22,16 +22,18 @@ export function Industries() {
         <div className="industry-index">
           {industries.map((industry, index) => (
             <Reveal key={industry} className="industry-row">
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <div className="industry-icon">
-                <Image
-                  src={industryImages[index]?.[0] ?? "/brochure/sector-private-clean.png"}
-                  alt={industryImages[index]?.[1] ?? `Ilustración de ${industry}`}
-                  width={96}
-                  height={96}
-                />
+              <div className="industry-card-content">
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                <div className="industry-icon">
+                  <Image
+                    src={industryImages[index]?.[0] ?? "/brochure/sector-private-clean.png"}
+                    alt={industryImages[index]?.[1] ?? `Ilustración de ${industry}`}
+                    width={96}
+                    height={96}
+                  />
+                </div>
+                <strong>{industry}</strong>
               </div>
-              <strong>{industry}</strong>
             </Reveal>
           ))}
         </div>
