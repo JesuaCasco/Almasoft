@@ -150,7 +150,7 @@ export function FinalCTA() {
       <Container>
         <Reveal className="life-cta-card">
           <div className="life-cta-brand" aria-hidden="true">
-            <Image src="/brand/almasoft-logo-tagline.png" alt="" width={274} height={88} />
+            <Image src="/brand/almasoft-icon.png" alt="" width={251} height={297} />
           </div>
           <div className="life-cta-robot">
             <Image src="/brand/almasoft-robot.png" alt="Robot de AlmaSoft" width={1302} height={1208} sizes="(max-width: 760px) 72vw, 34vw" />

@@ -35,17 +35,17 @@
 }
 .life-cta-brand {
   grid-area:brand;
-  display:inline-flex;
-  width:-moz-fit-content;
-  width:fit-content;
+  display:flex;
+  width:100%;
   align-items:center;
+  justify-content:center;
   gap:.7rem;
   color:var(--almasoft-blue);
   font-family:var(--font-manrope),var(--font-inter),system-ui,sans-serif
 }
 .life-cta-brand img {
   position:static;
-  width:clamp(210px,18vw,330px);
+  width:clamp(52px,4.6vw,76px);
   height:auto;
   opacity:1;
   transform:none
@@ -374,7 +374,7 @@
   padding:22px 16px
 }
 .life-cta-brand {
-  justify-self:start
+  justify-self:center
 }
 .life-cta-copy h2 {
   max-width:12ch;
@@ -437,4 +437,3 @@
 }
 
 }
-
