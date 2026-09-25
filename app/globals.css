@@ -650,7 +650,6 @@ section {
 
 .industry-row:hover {
   color: var(--almasoft-blue);
-  padding-left: 0.6rem;
 }
 
 .industry-row span {
