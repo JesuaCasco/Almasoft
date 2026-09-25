@@ -5622,3 +5622,31 @@ body :is(.desktop-nav, .mobile-nav, button, .button, .solution-detail-trigger, .
     padding: 20px;
   }
 }
+
+/* Responsive integrity: prevent intrinsic content from widening narrow grid tracks. */
+@media (max-width: 1120px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .primary-solutions-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hero-copy,
+  .hero-visual,
+  .hero-actions,
+  .hero-markets,
+  .brand-flow {
+    min-width: 0;
+    width: 100%;
+  }
+}
