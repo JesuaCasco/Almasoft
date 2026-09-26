@@ -4,7 +4,7 @@ export const siteConfig = {
   title: "AlmaSoft | Soluciones Tecnológicas Empresariales",
   description:
     "Software para microfinanzas, cooperativas de ahorro y crédito, facturación, inventario, contabilidad, planilla y desarrollo de soluciones empresariales a medida.",
-  domain: "",
+  domain: "https://almasoft.com.ni",
   email: "info@almasoft.com.ni",
   phone: "",
   whatsapp: "",

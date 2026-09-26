@@ -1,8 +1,11 @@
 # Publicación
 
 ## Destino y flujo
+- Destino definitivo aprobado: sitio estático en HostGator, dominio `almasoft.com.ni` registrado en Namecheap y correo alojado en HostGator.
+- `next.config.ts` genera `out/` mediante `output: "export"`; subir el contenido de `out/` al document root del dominio en HostGator (`public_html` si es el dominio principal).
+- Antes de cambiar DNS: respaldar la zona de Namecheap y conservar MX, `mail`, SPF, DKIM y DMARC de HostGator. Probar primero los archivos en el hosting.
 - Repositorio `JesuaCasco/Almasoft`, rama `main`.
-- Vercel: equipo `jesuacascos-projects`, proyecto `almasoft`; producción https://almasoft.vercel.app.
+- Vercel permanece temporalmente como respaldo: equipo `jesuacascos-projects`, proyecto `almasoft`; producción https://almasoft.vercel.app.
 - Un push a `main` activa despliegue automático. No lanzar además `deploy --prod` por defecto: produciría despliegues duplicados.
 - La autorización de publicación depende de la tarea actual; esta nota no concede permiso permanente.
 
